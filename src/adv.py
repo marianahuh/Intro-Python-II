@@ -39,14 +39,25 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-
+player = Player('Link', room['outside'])
 # Write a loop that:
 #
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 #
-# If the user enters a cardinal direction, attempt to move to the room there.
-# Print an error message if the movement isn't allowed.
-#
-# If the user enters "q", quit the game.
+while True:
+    print(f'\nYour current location is == {player.current_room.name}')
+    print(player.current_room.description)
+    go = input("\nMake a move: (n)orth (s)outh (e)ast (w)est (q)uit > ")
+    # go = go.lower().strip()
+    if go in ('n', 's', 'e', 'w'):
+        player.move(go)
+        # If the user enters "q", quit the game.
+    elif go == 'q':
+        print('Thank you for playing! Farewell!')
+        exit()
+    else:
+        # Print an error message if the movement isn't allowed.
+        print("Not a valid move. Please enter: n, s, e, w or q to Quit")
+        # If the user enters a cardinal direction, attempt to move to the room there.
