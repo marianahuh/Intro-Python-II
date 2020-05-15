@@ -8,8 +8,10 @@ class Player:
         self.current_room = current_room
 
     def move(self, direction):
-        if getattr(self.current_room, f'{direction}_to') is not None:
-            self.current_room = getattr(
-                self.current_room, f'{direction}_to')
+        # returns the value of the named attribute of an object. If not found, it returns the default value provided to the function.
+        if getattr(self.current_room, f'{direction}_to'):
+            self.current_room = getattr(self.current_room, f'{direction}_to')
+            print(f'\nYour current location is == {self.current_room.name}')
+            print(self.current_room.description)
         else:
             print("YOU MAY NOT ENTER! Try a different direction.")

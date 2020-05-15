@@ -39,7 +39,10 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-player = Player('Link', room['outside'])
+player = Player(input('Enter your username: '), room['outside'])
+print(f'Welcome, {player.name}!')
+print(f'You start your quest here: {player.current_room.name}')
+print(player.current_room.description)
 # Write a loop that:
 #
 # * Prints the current room name
@@ -47,10 +50,7 @@ player = Player('Link', room['outside'])
 # * Waits for user input and decides what to do.
 #
 while True:
-    print(f'\nYour current location is == {player.current_room.name}')
-    print(player.current_room.description)
     go = input("\nMake a move: (n)orth (s)outh (e)ast (w)est (q)uit > ")
-    # go = go.lower().strip()
     if go in ('n', 's', 'e', 'w'):
         player.move(go)
         # If the user enters "q", quit the game.
