@@ -5,7 +5,7 @@
 class Room:
     # define an init method to the constructor and add attributes to the base class object
     def __init__(self, name, description):  # take values as parameters and
-        self.name = name                    # assign to the attributes
+        self.name = name                              # assign to the attributes
         self.description = description
         self.n_to = None
         self.s_to = None
