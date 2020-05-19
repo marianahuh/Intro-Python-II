@@ -11,6 +11,7 @@ class Room:
         self.s_to = None
         self.e_to = None
         self.w_to = None
+        self.items = []
 
     def __str__(self):  # str method returns the string representation of the object
         return_str = self.name
